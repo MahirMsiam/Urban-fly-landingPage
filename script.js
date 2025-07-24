@@ -166,7 +166,8 @@ function initTabSwitching() {
                 el.style.opacity = "0";
                 el.style.transform = "translateY(50px)";
                 setTimeout(() => {
-                    el.style.transition = "all 0.8s ease-out";
+                    //redueced animation delay for each element
+                    el.style.transition = "all 0.6s ease-out"; 
                     el.style.opacity = "1";
                     el.style.transform = "translateY(0)";
                 }, index * 100);
@@ -533,6 +534,12 @@ document.getElementById('contactForm').addEventListener('submit', function() {
         page_url: window.location.href
     });
 });
+// ------------------------------------------------------------------------------------
+ document.querySelectorAll('.pricing-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  });
 
 // Add print styles support
 function addPrintStyles() {

@@ -562,10 +562,27 @@ p {
     border-radius: 15px;
     font-size: 0.9rem;
 }
-
-.pricing-features {
+/* -------------------------------------------------------------- */
+/* .pricing-features {
     margin-top: 1.5rem;
     color: var(--text-light);
+} */
+ .pricing-features {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-5px);
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1.0s cubic-bezier(0.4, 0, 0.2, 1);
+  /* margin-top: 1.5rem;
+  color: var(--text-light); */
+}
+.pricing-card:hover .pricing-features {
+  max-height: 800px;
+  opacity: 1;
+  transform: translate(0);
+  transition-delay: 0.05s;
 }
 
 .pricing-features i {
@@ -848,6 +865,103 @@ p {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
 }
+
+                                                                         /* new feature card flip */
+.card-flip-reveal {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+  
+
+  
+}
+
+.card-flip-reveal .front,
+.card-flip-reveal .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+ 
+  border-radius: 10px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+   -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.inner{
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    z-index: 2;
+}
+
+
+.card-flip-reveal .front {
+  background: white;
+  color: rgb(8, 0, 0);
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.card-flip-reveal .back {
+  background: linear-gradient(45deg, white, #ffffff);
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.card-flip-reveal:hover .front {
+  transform: rotateY(-180deg);
+}
+
+.card-flip-reveal:hover .back {
+  transform: rotateY(0deg);
+}
+
+
+/* Feature Items Fade-In */
+.card-flip-reveal .back .feature-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card-flip-reveal:hover .back .feature-item:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.card-flip-reveal:hover .back .feature-item:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+.card-flip-reveal:hover .back .feature-item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
