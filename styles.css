@@ -11,8 +11,33 @@
     --shadow-medium: rgba(0, 0, 0, 0.15);
     --shadow-heavy: rgba(0, 0, 0, 0.25);
     --gradient-primary: linear-gradient(135deg, var(--primary-navy), var(--light-blue));
-    --gradient-overlay: linear-gradient(135deg, rgba(26, 44, 79, 0.8), rgba(74, 144, 226, 0.6));
+    --gradient-overlay: linear-gradient(135deg, white);
 }
+.hero-img {
+  display: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  z-index: -1;
+}
+html, body {
+  height: 100%;
+}
+/* .hero {
+  aspect-ratio: 16 / 9; /* optional for layout stability */
+
+/* }  */ */
+.hero-overlay {
+  z-index: 2;
+}
+canvas.vanta-canvas {
+  z-index: 1;
+  position: absolute !important;
+}
+
+
 
 /* Reset and Base Styles */
 * {
@@ -29,9 +54,15 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--pure-white);
+   
+    border: #4A90E2;
     overflow-x: hidden;
     
+}
+.btn btn-secondary{
+    background: #1a2c4f;
+    color: var(--pure-navy);
+    border: 2px solid var(--pure-white);
 }
 
 .container {
@@ -48,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-.price, h3 {
+.price {
   text-shadow: 0 10px 14px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
   background-color:transparent;
@@ -235,6 +266,7 @@ p {
 /* Hero Section */
 .hero {
     height: 100vh;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
@@ -266,7 +298,7 @@ p {
 
 .hero-content {
     text-align: center;
-    color: var(--pure-white);
+    color:#4A90E2;
     z-index: 1;
 }
 
@@ -292,7 +324,7 @@ p {
     flex-wrap: wrap;
 }
 
-.floating-element {
+/* .floating-element {
     position: absolute;
     right: 10%;
     top: 50%;
@@ -300,7 +332,7 @@ p {
     font-size: 3rem;
     color: rgba(255, 255, 255, 0.3);
     animation: float 6s ease-in-out infinite;
-}
+} */
 
 /* Buttons */
 .btn {
@@ -332,14 +364,16 @@ p {
 }
 
 .btn-secondary {
-    background: transparent;
+    background:#1a2a49;
     color: var(--pure-white);
     border: 2px solid var(--pure-white);
 }
 
 .btn-secondary:hover {
-    background: var(--pure-white);
-    color: var(--primary-navy);
+     background: var(--light-blue);
+    color: var(--pure-white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
 }
 
 .btn-outline {
@@ -558,8 +592,8 @@ p {
 
 .price {
     font-size: 2rem;
-    font-weight: 800;
-    color: var(--pure-white);
+    font-weight: 200px;
+    color: var(--primary-navy);
     margin: 1rem 0;
 }
 
@@ -569,6 +603,14 @@ p {
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.9rem;
+}
+.package_price{
+    
+ font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--primary-navy);
+  font-weight: 900;
 }
 /* -------------------------------------------------------------- */
 /* .pricing-features {
@@ -903,6 +945,7 @@ p {
   width: 100%;
   height: 100%;
   padding: 1.5rem;
+ 
 
  
   border-radius: 10px;
@@ -930,8 +973,13 @@ p {
     -webkit-perspective: inherit;
             perspective: inherit;
     z-index: 2;
+  
+    
+
     
 }
+
+
 
 
 .card-flip-reveal .front {
@@ -949,7 +997,11 @@ p {
 }
 
 .card-flip-reveal .back {
-  background: linear-gradient(45deg, white, #ffffff);
+  /* background: linear-gradient(45deg, white, #ffffff); */
+background-size: 100% 100%;
+background-position: 0px 0px,0px 0px;
+background-image: conic-gradient(from 166deg at 50% 50%, #000000FF 4%, #4798D4FF 100%);
+
   transform: rotateY(180deg);
   z-index: 1;
   font-family: 'Inter', sans-serif; /* You can explore other fonts like 'Roboto', 'Poppins', or 'Lato' for a modern look */
@@ -957,7 +1009,7 @@ p {
   font-weight: 400; /* Try 500 or 600 for a bolder style */
   line-height: 1.6;
   letter-spacing: 0.2px;
-  color: #333;
+  color:white;
  
 }
 
@@ -975,13 +1027,16 @@ p {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
-font-family: 'Roboto'; /* You can explore other fonts like 'Roboto', 'Poppins', or 'Lato' for a modern look */
-  font-size: 1.1rem;
-  font-weight: 500; 
+font-family:'Inter', sans-serif; /* You can explore other fonts like 'Roboto', 'Poppins', or 'Lato' for a modern look */
+  font-size: 1.4rem;
+  font-weight: 700; 
   line-height: 1.6;
   letter-spacing: 0.2px;
-  color: black; 
+  color: rgb(248, 246, 246); 
+  
   font-style: none;
+  text-shadow: 0 0 10px hsla(0, 82%, 4%, 0);
+  text-align: center;
 }
 
 .card-flip-reveal:hover .back .feature-item:nth-child(1) {
@@ -1002,7 +1057,11 @@ font-family: 'Roboto'; /* You can explore other fonts like 'Roboto', 'Poppins', 
   transition-delay: 0.4s;
 }
 
-
+.container{
+   background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
 
 
 /* Responsive Design */
@@ -1153,7 +1212,7 @@ textarea:focus {
 } */
 
 .gradient-move {
-    background: linear-gradient(90deg, var(--light-blue), var(--pure-white));
+    background: linear-gradient(90deg, var(--light-blue), #1a2c4f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

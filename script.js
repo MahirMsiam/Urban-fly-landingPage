@@ -215,6 +215,10 @@ function initContactForm() {
     });
 }
 
+
+
+
+
 // Form validation
 function validateForm(data) {
     const errors = [];
@@ -562,6 +566,35 @@ function addPrintStyles() {
 }
 
 addPrintStyles();
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Ensure the VANTA library is loaded and the target element exists
+//     const vantaBg = document.querySelector('.vanta-bg');
+//     if (window.VANTA && window.VANTA.CLOUDS2 && vantaBg) {
+//         window.VANTA.CLOUDS2({
+//             el: vantaBg,
+//             mouseControls: true,
+//             touchControls: true,
+//             gyroControls: true,
+//             minHeight: 100.00,
+//             minWidth: 100.00,
+//             scale: 1,
+//             texturePath: "./gallery/noise.png"
+//         });
+//     } else if (!vantaBg) {
+//         console.warn('VANTA background element ".vanta-bg" not found.');
+//     }
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
+  VANTA.CLOUDS({
+    el: "#home",
+    mouseControls: true,
+    touchControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00
+  });
+});
 
 // Initialize all functionality when DOM is ready
 console.log('Urban Fly Tours website initialized successfully!');
